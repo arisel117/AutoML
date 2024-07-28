@@ -223,6 +223,17 @@ PyTorch AutoML을 몇 가지 모델로 테스트 해 볼 예정
   
 * * *
 
+</br></br>
 
-
-
+* * *
+## 학습 과정 시각화 방법
+- visdom를 통해 빠르게 학습 과정 시각화
+  - [공식 git link](https://github.com/fossasia/visdom)
+  - [Install link](https://pypi.org/project/visdom/)
+- tensorboard 이용
+  - [tensorflow로 사용하기](https://www.tensorflow.org/tensorboard/get_started?hl=ko)
+  - [pytorch로 사용하기](https://tutorials.pytorch.kr/recipes/recipes/tensorboard_with_pytorch.html)
+  - [공식 git link](https://github.com/tensorflow/tensorboard)
+  - [Install link](https://pypi.org/project/tensorboard/)
+- 
+* * *
