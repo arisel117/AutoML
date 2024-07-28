@@ -60,12 +60,78 @@ PyTorch AutoML을 몇 가지 모델로 테스트 해 볼 예정
 </br></br>
 
 * * *
+## auto-sklearn를 통해 빠르게 학습 모델 구축 및 테스트
+- 간단하게 모델을 다양한 모델로 빠르게 돌려볼 수 있는 AutoML
+- [공식 git link](https://automl.github.io/auto-sklearn/master/#)
+- [Install link](https://pypi.org/project/auto-sklearn/)
+- 간단 사용 방법
+  - Regressor Model
+    ```python
+    from pprint import pprint
+
+    import sklearn.datasets
+    import sklearn.metrics
+    
+    import autosklearn.regression
+    import matplotlib.pyplot as plt
+
+    automl = AutoSklearnRegressor()
+    automl.fit(X_train, y_train)
+
+    print(automl.leaderboard())
+
+    pprint(automl.show_models(), indent=4)
+
+    train_predictions = automl.predict(X_train)
+    print("Train R2 score:", sklearn.metrics.r2_score(y_train, train_predictions))
+    test_predictions = automl.predict(X_test)
+    print("Test R2 score:", sklearn.metrics.r2_score(y_test, test_predictions))
+
+    plt.scatter(train_predictions, y_train, label="Train samples", c="#d95f02")
+    plt.scatter(test_predictions, y_test, label="Test samples", c="#7570b3")
+    plt.xlabel("Predicted value")
+    plt.ylabel("True value")
+    plt.legend()
+    plt.plot([30, 400], [30, 400], c="k", zorder=0)
+    plt.xlim([30, 400])
+    plt.ylim([30, 400])
+    plt.tight_layout()
+    plt.show()
+    ```
+  - Classifier Model
+    ```python
+    import numpy as np
+    from pprint import pprint
+    
+    import sklearn.datasets
+    import sklearn.metrics
+    
+    import autosklearn.classification
+
+    automl = autosklearn.classification.AutoSklearnClassifier()
+    automl.fit(X_train, y_train)
+
+    print(automl.leaderboard())
+
+    pprint(automl.show_models(), indent=4)
+
+    print(automl.sprint_statistics())
+
+    predictions = automl.predict(X_test)
+    print("Accuracy score", sklearn.metrics.accuracy_score(y_test, predictions))
+
+    ```
+* * *
+
+</br></br>
+
+* * *
 ## Auto-PyTorch를 통해 빠르게 학습 모델 구축 및 테스트
 - 간단하게 모델을 다양한 모델로 빠르게 돌려볼 수 있는 PyTorch AutoML
 - [공식 git link](https://github.com/automl/Auto-PyTorch)
 - [Install link](https://pypi.org/project/autoPyTorch/)
 - 간단 사용 방법
-  - reg
+  - Regressor Model
     ```python
     from autoPyTorch.api.time_series_forecasting import TimeSeriesForecastingTask
 
