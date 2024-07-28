@@ -31,8 +31,24 @@ PyTorch AutoML을 몇 가지 모델로 테스트 해 볼 예정
   ```
 * * *
 
+</br></br>
 
-
+* * *
+## lazypredict를 통한 빠른 기계학습 모델 테스트 방법
+- 간단하게 모델을 다양한 모델로 빠르게 돌려볼 수 있는 AutoML
+- Regressor Model
+  ```python
+  from lazypredict.Supervised import LazyRegressor
+  reg = LazyRegressor(verbose=0, predictions=True)
+  models, predictions = reg.fit(x_train, x_test, y_train, y_test)
+  ```
+- Classifier Model
+  ```python
+  from lazypredict.Supervised import LazyClassifier
+  clf = LazyClassifier(verbose=0, predictions=True)
+  models, predictions = clf.fit(x_train, x_test, y_train, y_test)
+  ```
+* * *
 
 
 
