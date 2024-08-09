@@ -53,6 +53,7 @@
 
     models, predictions = clf.fit(x_train, x_test, y_train, y_test)
     ```
+- 주의 사항: 몇몇 모델은 적용이 잘 안되거나, 데이터의 크기가 크면 OOM이 발생 할 수 있음
 * * *
 
 </br></br>
